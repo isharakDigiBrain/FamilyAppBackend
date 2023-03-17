@@ -1,0 +1,228 @@
+@import "themes";
+// @import u;
+@import "components";
+// @import "modal";
+
+body,
+div,
+input,
+button {
+    box-sizing: border-box;
+}
+
+section {
+    margin-left: 150px;
+}
+
+
+
+.FullScreenBG {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#login {
+  
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    input {
+        border: none;
+        width: 300px;
+        padding: 20px;
+        outline: none;
+        border-radius: 20px;
+
+
+        font: {
+            weight: 500;
+            size: 1.5rem;
+        }
+    }
+
+    input::placeholder {
+        color: #B8874F;
+    }
+
+    input[type='submit'] {
+        width: 100%;
+        color: #B8874F;
+        border-radius: 30px;
+        background: #E6D4C0;
+        box-shadow: 10px 10px 10px rgba(209, 188, 164, 0.5), -10px -10px 10px rgba(255, 255, 255, 0.5);
+
+    }
+
+}
+
+.CardDiv{
+    gap: 30px;
+    display: flex;
+    padding: 50px;
+    max-width: 80%;
+    max-height: 570px;
+    border-radius: 15px;
+    align-items: center;
+    height: fit-content;
+    box-sizing: border-box;
+    flex-direction: column;
+    background: rgba(230, 212, 192, 0.2);
+    box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.5), 10px 10px 20px rgba(209, 188, 164, 0.5);
+}
+
+//------------------------------------
+//HOME
+.dashboard-poster {
+    // background: linear-gradient(90deg, rgba(#ffffff, .5) 10%, rgba($primary, .3) 97.17%);
+    margin: 30px;
+    height: 400px;
+    padding: 50px;
+    position: relative;
+    transition: .5s all;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    box-shadow: 1px 3px 30px rgba(#000, .2);
+
+    img.transparent-right {
+
+        height: 275px;
+        aspect-ratio: 1;
+        object-fit: contain;
+        opacity: .2;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .dashboard {
+        width: 500px;
+        // height: 100%;
+        padding: 20px 0;
+    }
+
+    .graphs {
+        // padding: 0;
+        box-sizing: border-box;
+
+    }
+}
+
+.dashboard-poster:hover {
+    // box-shadow: 1px 1px 10px rgba(#000, .1);
+    box-shadow: 1px 3px 30px rgba(#000, .3);
+
+
+
+}
+
+
+// -----------------------------------
+// Loans
+#loanHistory {
+
+    gap: 20px;
+    display: grid;
+    padding: 10px;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
+
+    height: 100vh;
+
+    .filters {
+        gap: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .filter-btns {
+            font-size: 0;
+
+
+        }
+
+        button {
+            height: 100%;
+            margin: 0;
+            border-radius: 0;
+            outline: none;
+            border: none;
+
+            font: {
+                size: 1.2rem;
+
+            }
+
+
+            // font-size: 12px;
+        }
+
+        .selected {
+            background-color: $primary;
+        }
+
+    }
+
+    .tiles {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 0;
+
+    }
+
+    .details {
+
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .table {
+        display: block;
+
+    }
+
+    .history {
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .history {
+            display: block;
+
+        }
+
+        .table {
+            display: none;
+        }
+    }
+}
+
+#loanHistory>div {
+    padding: 15px;
+    overflow-y: scroll;
+    border-radius: 20px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    box-shadow: 2px 2px 10px rgba(#000, .1);
+}
+
+
+
+// ishara 
+
+.power-off:hover {
+    color: #ff0000;
+}
