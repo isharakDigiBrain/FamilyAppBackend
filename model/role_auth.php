@@ -17,8 +17,14 @@
     $username  = $_SESSION['username'];
 
     $data = $RoleAuth->role_autherization($user_id, $username);
-    $ResponseObject->RoleAccess = $data;
+    $CopyData = $data;
+    $defaultData =  array_shift( $data);    
+    $ResponseObject->RoleAccess = $CopyData;
     $ResponseObject->IsRoleAccess = true;
-    $ResponseObject->defaultPage = array_shift( $data)->name;
+    $ResponseObject->defaultPage = $defaultData->name;
+    $ResponseObject->defaultPageDescription = $defaultData->description;
+    $ResponseObject->SwitchRole =  array_column($CopyData, 'name');
+
+
 
     return $ResponseObject;

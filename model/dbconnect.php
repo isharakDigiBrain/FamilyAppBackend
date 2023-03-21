@@ -14,7 +14,7 @@ class dbconn
     {
         global $dbuserx, $dbpassx;
         try {
-            $this->dblocal = new PDO('mysql:host=localhost;dbname=fam_app;charset=utf8mb4',  $dbuserx, $dbpassx);
+            $this->dblocal = new PDO('mysql:host=localhost;dbname=bi_fam_app;charset=utf8mb4',  $dbuserx, $dbpassx);
             $this->dblocal->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->IsSuccess =  true;
         } catch (PDOException $e) {

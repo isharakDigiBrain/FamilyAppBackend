@@ -3,12 +3,12 @@ include_once 'dbconnect.php';
 session_start();
 class LoginAuth extends dbconn
 {
-  
-    
-    public function __construct()
-    {
-        $this->initDBO();
-    }
+
+
+    // public function __construct()
+    // {
+    //     $this->initDBO();
+    // }
 
     public function login_user($user_name, $user_password)
     {
@@ -42,7 +42,7 @@ class LoginAuth extends dbconn
                 //         bi_user_role_access  URAccess
                 //     LEFT JOIN 
                 //         bi_user_role URole ON URAccess.role_id = URole.id
-                    
+
                 //     WHERE 
                 //         user_id={$user_id} 
                 //          ";
@@ -92,5 +92,17 @@ class LoginAuth extends dbconn
             $stat1 = $ex->getMessage();
             return $stat1;
         }
+    }
+
+
+    public function logout_user()
+    {
+        session_unset();
+        session_destroy();
+        $row['message'] = 'logout success.!';
+        $row['status'] = 200;
+        
+        return $row;
+        exit();
     }
 }

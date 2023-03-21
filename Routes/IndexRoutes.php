@@ -24,10 +24,8 @@
      return $protocol.$domainName;
  }
 
-
  defined('WEB_ROOT') ? null    : define('WEB_ROOT',siteURL());
-
-
+ 
  defined('WEB_ROOT_TEMPLATE') ? null    : define('WEB_ROOT_TEMPLATE',WEB_ROOT. WS . 'Template' . WS );
  defined('WEB_ROOT_ROLE') ? null    : define('WEB_ROOT_ROLE',WEB_ROOT. WS . 'Role' . WS );
  defined('WEB_ROOT_MODEL') ? null    : define('WEB_ROOT_MODEL',WEB_ROOT. WS . 'model' . WS );

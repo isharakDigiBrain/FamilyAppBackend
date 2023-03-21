@@ -1,10 +1,7 @@
 <section class="main">
     <h3 class="page-title"> <?php  echo $Role; ?> Dashboard</h3>
-    <?php 
-    // echo '<pre>';
-    // print_r($ResponseObject);
-    ?>
-    <div class="dashboard-poster">
+   
+    <div class="dashboard-poster" >
         <img class="transparent-right" src="./assets/img/section-loan.png" alt="" srcset="">
         <h3 class="fw-b" id="ITAdmin"> Loans </h3>
         <div class="home-dash-items">

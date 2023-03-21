@@ -18,17 +18,22 @@ if (!$DB->IsSuccess) { // Check if DB error
 
     $showPage = false; //  page to be displayed
     $ArrayPage = [
-        "Login", "Dashboard"
+        "Login", "Dashboard","Logout"
     ];
 
     if ($_SESSION) { // if session exists proceed with if
-        $showPage = $ArrayPage[1];
-        $models = "model/";
-        include_once $models . 'role_auth.php';
-        print_r($ResponseObject);
+        if(isset($_POST['nav_page']) && $_POST['nav_page'] == 'LogoutPage'){
+            $showPage = $ArrayPage[2];
+        } else {
+            $showPage = $ArrayPage[1];
+        }
+        
+        include_once  SITE_ROOT_MODEL . 'role_auth.php'; //required
+        // echo '<pre>';
+        //  print_r($ResponseObject);
        
     } else { // if sesiion does not esist proceed with else
-        $showPage = $ArrayPage[0];       
+        $showPage = $ArrayPage[0];   //login    
     }   
 
     include_once __DIR__ . DIRECTORY_SEPARATOR . 'Template' . DIRECTORY_SEPARATOR . $showPage . '.php';

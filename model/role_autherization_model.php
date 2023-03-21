@@ -7,7 +7,7 @@ class RoleAuth extends dbconn
     private $user_id;
 
     private $query =
-        "   SELECT 
+    "   SELECT 
             URAccess.*
             , URole.name
             , URole.description
@@ -31,21 +31,19 @@ class RoleAuth extends dbconn
             $this->username =  $user_name;
             $this->user_id =  $user_id;
             if ($this->user_id) {
-                //$declare = " SET  @UserID :={$user_id};";
-                // $query =  $declare . $this->query;
+
                 $query = "SELECT 
                         URAccess.*
                         , URole.name
                         , URole.description
-                        , URole.priority 
-                       
+                        , URole.id
                     FROM 
                         bi_user_role_access  URAccess
                     LEFT JOIN 
                         bi_user_role URole ON URAccess.role_id = URole.id
                     WHERE 
                         URAccess.user_id={$this->user_id} 
-                        ORDER BY URole.priority ASC
+                        ORDER BY URole.id DESC
                         ";
                 $stmt = $db->prepare($query);
                 $stmt->execute();

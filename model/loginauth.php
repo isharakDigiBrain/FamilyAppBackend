@@ -10,5 +10,10 @@ if (isset($_POST['action'])) {
         echo json_encode($data);
     }
 
+    if($_POST["action"] == "LogOutUser"){
+        $data = $sv->logout_user();
+        echo json_encode($data);
+    }
+
    
 }

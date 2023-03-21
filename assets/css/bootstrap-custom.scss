@@ -1,0 +1,19 @@
+.bg-primary {
+    background-color: red;
+}
+
+.accordion-button {
+    background-color: $veryLightPrimary;
+}
+
+.accordion-button:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: $lightPrimary;
+    color: #000;
+    outline: none;
+}

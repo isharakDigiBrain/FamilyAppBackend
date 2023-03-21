@@ -6,6 +6,7 @@ $lightPrimary: rgb(248, 238, 226);
 $veryLightPrimary: rgb(255, 250, 244);
 $errorBG: #FFE1DD;
 $successBG: #E3FFDA;
+$lightText: #cecece;
 
 body {
     background: $veryLightPrimary;
@@ -22,8 +23,12 @@ p {
     padding: 0;
 }
 
-.gold {
+.gold-txt {
     color: $darkPrimary;
+}
+
+.light-txt {
+    color: #808080;
 }
 
 h1,
@@ -83,4 +88,12 @@ h6 {
     font: {
         weight: 600;
     }
+}
+
+.page-title {
+    text-align: center;
+    margin: 10px;
+}
+a{
+    cursor: pointer;
 }

@@ -1,7 +1,8 @@
 <div class="FullScreenBG" style="background-image: url('./assets/img/BG.png');">
 
 
-    <div id="login" class="CardDiv">
+    <div id="login" class="CardDiv login">
+
         <div class="logo">
             <img src="./assets/img/Logo.png" alt="" srcset="">
             <h3>BE<span class="gold">LL</span>UCCI</h3>
@@ -13,10 +14,12 @@
             <input type="submit" class="btn btn-primary btn-block" id="btn_login" name="btn_login" value="Sign In">
             <?= $DB->IsSuccess ? '' : '<p class="text-danger">' . $DB->Messsage . '</p>'  ?>
         </form>
+
     </div>
 
 
-    <div id="LoadSpiner" style="display: none; color: #B8874F !important;">
+    <!-- ishara 15/03/2023 -->
+    <div id="LoadSpiner" style="display: none; color: #B8874F !important; z-index:9999;position: fixed;">
         <div class="text-center"><i class="fa-solid fa fa-spinner fa-spin fa-5x"></i>
             <p>Please Wait!</p>
         </div>
@@ -61,10 +64,16 @@
                                     $('#LoadSpiner').css({
                                         display: 'block'
                                     });
+                                    $('#body-content').css({
+                                        opacity: 0.5,
+                                    });
 
                                     $('#LoadSpiner').fadeIn();
                                     setTimeout(() => {
-                                        window.location.href = 'index.php';
+                                        $('#body-content').css({
+                                            opacity: 1,
+                                        });
+                                        post_to_url('<?= WEB_ROOT ?>');
                                     }, "1000");
                                 }
                                 if (response.status == '500') {
