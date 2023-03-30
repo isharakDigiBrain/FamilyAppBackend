@@ -49,9 +49,7 @@ $(document).ready(function() {
     });
 
     //navigation to switch roles// 
-    <?php
-        foreach ($ResponseObject->RoleAccess as $val) {
-        ?>
+    <?php foreach ($ResponseObject->RoleAccess as $val) { ?>
     $(".Role-<?= $val->name ?>View").click(function() {
         post_to_url('<?= WEB_ROOT ?>', {
             Role: '<?= $val->name ?>'
@@ -67,4 +65,6 @@ $(document).ready(function() {
 });
 
 console.log('<?= json_encode($_POST)  ?>');
+
+
 </script>

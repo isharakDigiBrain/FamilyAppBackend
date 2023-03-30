@@ -1,4 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;500;600;700&display=swap");
+.primary {
+  color: rgb(238, 220, 200);
+}
+.primary-bg, .btn-primary {
+  background-color: rgb(238, 220, 200);
+  color: #000000;
+}
+
+.dark-primary {
+  color: rgb(184, 135, 79);
+}
+.dark-primary-bg, .btn-darkPrimary {
+  color: #fff;
+  background-color: rgb(184, 135, 79);
+}
+
+.light-Primary {
+  color: rgb(248, 238, 226);
+}
+.light-Primary-bg {
+  color: #000000;
+  background-color: rgb(248, 238, 226);
+}
+
 body {
   background: rgb(255, 250, 244);
   margin: 0;
@@ -64,10 +88,6 @@ h6 {
 .page-title {
   text-align: center;
   margin: 10px;
-}
-
-a {
-  cursor: pointer;
 }
 
 .bg-primary {
@@ -188,6 +208,7 @@ a {
   overflow-x: hidden;
   transition: 0.5s;
   z-index: 1000;
+  width: 100px;
 }
 .sidebar.open {
   width: 100px;
@@ -290,6 +311,19 @@ a {
 }
 .sidebar .role-change .role-menu ul li:last-child {
   border-bottom: none;
+}
+
+.footer {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  padding: 20px 20px 20px 120px;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .footer {
+    padding: 20px;
+  }
 }
 
 .tab-content {
@@ -427,151 +461,6 @@ thead {
   background-color: rgb(238, 220, 200);
 }
 
-.modal {
-  overflow: hidden;
-  width: fit-content;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  opacity: 1;
-  transition: all 3s;
-}
-.modal-content {
-  border-radius: 30px;
-  background-color: #fff;
-}
-.modal-header {
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
-  justify-content: center;
-  background-color: rgb(238, 220, 200);
-  color: rgb(184, 135, 79);
-  font-size: 2rem;
-  font-weight: 500;
-}
-.modal-body {
-  max-height: 800px;
-  overflow: scroll;
-}
-.modal-footer {
-  flex-wrap: nowrap;
-  gap: 20px;
-}
-.modal-footer .btn-group {
-  display: flex;
-  gap: 5px;
-}
-.modal .loan-details-content {
-  padding: 20px;
-  border-radius: 20px;
-  background-color: #fff;
-  grid-template-columns: repeat(2, 1fr);
-  display: grid;
-  width: 1000px;
-  max-height: 80vh;
-  overflow-y: scroll;
-  row-gap: 20px;
-  column-gap: 50px;
-}
-.modal .modal-body-form {
-  border-radius: 20px;
-  background-color: #fff;
-  gap: 10px;
-  display: flex;
-  padding: 50px 150px;
-  position: relative;
-  max-height: 80vh;
-  flex-direction: column;
-}
-.modal .modal-body-form .form-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.modal .modal-body-form input {
-  background-color: rgb(255, 250, 244);
-  border: 2px solid rgb(238, 220, 200);
-  color: rgb(184, 135, 79);
-}
-.modal .modal-body-form input::placeholder {
-  color: #beb9b9;
-}
-.modal .modal-body-form input[type=submit] {
-  color: #fff;
-  background-color: rgb(184, 135, 79);
-}
-@media screen and (max-width: 1000px) {
-  .modal {
-    width: 100%;
-    max-width: 600px;
-  }
-  .modal .modal-body-form {
-    padding: 0;
-  }
-  .modal .modal-body-form input,
-  .modal .modal-body-form textarea {
-    padding: 10px;
-    width: 100%;
-    font-size: 1.2rem;
-  }
-  .modal .loan-details-content {
-    padding: 0;
-    border-radius: 0;
-    max-height: 500px;
-    width: 100%;
-    gap: 10px;
-  }
-  .modal .loan-details-content h5 {
-    font-size: 1rem;
-  }
-  .modal .loan-details-content td,
-  .modal .loan-details-content th {
-    font-size: 1rem;
-  }
-  .modal-footer {
-    flex-direction: column;
-    gap: 5px;
-  }
-  .modal-footer .btn-group {
-    width: 100%;
-  }
-  .modal-footer .btn-group button {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 786px) {
-  .modal {
-    max-width: 80%;
-  }
-}
-
-#loan-edit-modal {
-  z-index: 1000000;
-}
-
-.hideModal {
-  display: none;
-}
-
-.partnerCard {
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  width: 350px;
-  text-align: center;
-  border-radius: 20px;
-}
-.partnerCard img {
-  width: 100%;
-}
-.partnerCard div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 20px;
-  column-gap: 10px;
-}
-
 input {
   width: 300px;
   border: none;
@@ -602,6 +491,17 @@ input.small {
 
 .width100 {
   width: 100%;
+}
+
+.btn-large {
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.5rem;
+}
+.btn-small {
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 1rem;
 }
 
 .img-btn {
@@ -768,6 +668,20 @@ input.small {
 .download-btn:hover {
   background-color: rgb(184, 135, 79);
 }
+.btn-group {
+  display: flex;
+  gap: 5px;
+  width: 300px;
+}
+.btn-group button {
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .btn-group {
+    width: 100%;
+  }
+}
+
 .grid2x {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -869,10 +783,6 @@ input.small {
     grid-column: span 6;
   }
 }
-.error {
-  font-size: 12px !important;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -884,189 +794,43 @@ body.modal-active {
 
 .modal-container {
   position: fixed;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   transform: scale(0);
   z-index: 10000;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-.modal-container.one {
-  transform: scaleY(0.01) scaleX(0);
-  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.one .modal-background .modal {
-  transform: scale(0);
-  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.one.out {
-  transform: scale(1);
-  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.one.out .modal-background .modal {
-  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.modal-animation-two {
+.modal-container.modal-animation {
   transform: scale(1);
 }
-.modal-container.modal-animation-two .modal-background {
+.modal-container.modal-animation .modal-background {
   background: rgba(0, 0, 0, 0);
   animation: fadeIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-.modal-container.modal-animation-two .modal-background .modal {
+.modal-container.modal-animation .modal-background .modal {
   opacity: 0;
   animation: scaleUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-.modal-container.modal-animation-two + .content {
+.modal-container.modal-animation + .content {
   animation: scaleBack 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-.modal-container.modal-animation-two.out {
+.modal-container.modal-animation.out {
   animation: quickScaleDown 0s 1s linear forwards;
 }
-.modal-container.modal-animation-two.out .modal-background {
+.modal-container.modal-animation.out .modal-background {
   animation: fadeOut 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-.modal-container.modal-animation-two.out .modal-background .modal {
+.modal-container.modal-animation.out .modal-background .modal {
   animation: scaleDown 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-.modal-container.modal-animation-two.out + .content {
+.modal-container.modal-animation.out + .content {
   animation: scaleForward 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.three {
-  z-index: 0;
-  transform: scale(1);
-}
-.modal-container.three .modal-background {
-  background: rgba(0, 0, 0, 0.6);
-}
-.modal-container.three .modal-background .modal {
-  animation: moveUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.three + .content {
-  z-index: 1;
-  animation: slideUpLarge 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.three.out .modal-background .modal {
-  animation: moveDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.three.out + .content {
-  animation: slideDownLarge 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.four {
-  z-index: 0;
-  transform: scale(1);
-}
-.modal-container.four .modal-background {
-  background: rgba(0, 0, 0, 0.7);
-}
-.modal-container.four .modal-background .modal {
-  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.four + .content {
-  z-index: 1;
-  animation: blowUpContent 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.four.out .modal-background .modal {
-  animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.four.out + .content {
-  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.five {
-  transform: scale(1);
-}
-.modal-container.five .modal-background {
-  background: rgba(0, 0, 0, 0);
-  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.five .modal-background .modal {
-  transform: translateX(-1500px);
-  animation: roadRunnerIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.five.out {
-  animation: quickScaleDown 0s 0.5s linear forwards;
-}
-.modal-container.five.out .modal-background {
-  animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.five.out .modal-background .modal {
-  animation: roadRunnerOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six {
-  transform: scale(1);
-}
-.modal-container.six .modal-background {
-  background: rgba(0, 0, 0, 0);
-  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six .modal-background .modal {
-  background-color: transparent;
-  animation: modalFadeIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six .modal-background .modal h2,
-.modal-container.six .modal-background .modal p {
-  opacity: 0;
-  position: relative;
-  animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six .modal-background .modal .modal-svg rect {
-  animation: sketchIn 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six.out {
-  animation: quickScaleDown 0s 0.5s linear forwards;
-}
-.modal-container.six.out .modal-background {
-  animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six.out .modal-background .modal {
-  animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six.out .modal-background .modal h2,
-.modal-container.six.out .modal-background .modal p {
-  animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.six.out .modal-background .modal .modal-svg rect {
-  animation: sketchOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.seven {
-  transform: scale(1);
-}
-.modal-container.seven .modal-background {
-  background: rgba(0, 0, 0, 0);
-  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.seven .modal-background .modal {
-  height: 75px;
-  width: 75px;
-  border-radius: 75px;
-  overflow: hidden;
-  animation: bondJamesBond 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.seven .modal-background .modal h2,
-.modal-container.seven .modal-background .modal p {
-  opacity: 0;
-  position: relative;
-  animation: modalContentFadeIn 0.5s 1.4s linear forwards;
-}
-.modal-container.seven.out {
-  animation: slowFade 0.5s 1.5s linear forwards;
-}
-.modal-container.seven.out .modal-background {
-  background-color: rgba(0, 0, 0, 0.7);
-  animation: fadeToRed 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.seven.out .modal-background .modal {
-  border-radius: 3px;
-  height: 162px;
-  width: 227px;
-  animation: killShot 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal-container.seven.out .modal-background .modal h2,
-.modal-container.seven.out .modal-background .modal p {
-  animation: modalContentFadeOut 0.5s 0.5 cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 .modal-container .modal-background {
   display: flex;
@@ -1078,33 +842,110 @@ body.modal-active {
   text-align: center;
   vertical-align: middle;
 }
-.modal-container .modal-background .modal {
-  display: flex;
-  font-weight: 300;
+
+.modal {
   position: relative;
+  overflow: hidden;
+  width: fit-content;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 1;
+  transition: all 3s;
 }
-.modal-container .modal-background .modal h2 {
-  font-size: 25px;
-  line-height: 25px;
-  margin-bottom: 15px;
+.modal-content {
+  border-radius: 30px;
+  background-color: #fff;
 }
-.modal-container .modal-background .modal p {
-  font-size: 18px;
-  line-height: 22px;
+.modal-header {
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  justify-content: center;
+  background-color: rgb(238, 220, 200);
+  color: rgb(184, 135, 79);
+  font-size: 2rem;
+  font-weight: 500;
 }
-.modal-container .modal-background .modal .modal-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 3px;
+.modal-body {
+  max-height: 800px;
+  overflow: scroll;
 }
-.modal-container .modal-background .modal .modal-svg rect {
-  stroke: #fff;
-  stroke-width: 2px;
-  stroke-dasharray: 778;
-  stroke-dashoffset: 778;
+.modal-footer {
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+.modal form {
+  border-radius: 20px;
+  background-color: #fff;
+  gap: 10px;
+  display: flex;
+  padding: 50px 150px;
+  position: relative;
+  max-height: 80vh;
+  flex-direction: column;
+}
+.modal form .form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.modal form input {
+  background-color: rgb(255, 250, 244);
+  border: 2px solid rgb(238, 220, 200);
+  color: rgb(184, 135, 79);
+}
+.modal form input::placeholder {
+  color: #beb9b9;
+}
+.modal form input[type=submit] {
+  color: #fff;
+  background-color: rgb(184, 135, 79);
+}
+.modal .loan-details-content {
+  width: 1000px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  border-radius: 20px;
+  background-color: #fff;
+}
+@media screen and (max-width: 1000px) {
+  .modal {
+    width: 100%;
+    max-width: 600px;
+  }
+  .modal form {
+    padding: 0;
+  }
+  .modal form input,
+.modal form textarea {
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2rem;
+  }
+  .modal .loan-details-content {
+    max-height: 500px;
+    width: 100%;
+    gap: 10px;
+  }
+  .modal-footer {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+@media screen and (max-width: 786px) {
+  .modal {
+    max-width: 80%;
+  }
+}
+
+#loan-edit-modal {
+  z-index: 1000000;
+}
+
+.hideModal {
+  display: none;
 }
 
 .content {
@@ -1448,6 +1289,15 @@ button {
   box-sizing: border-box;
 }
 
+ul {
+  margin: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
 .main {
   margin-top: 100px;
 }
@@ -1457,7 +1307,7 @@ button {
   }
 }
 
-.FullScreenBG {
+.fullScreenBG {
   display: flex;
   height: 100vh;
   align-items: center;
@@ -1468,12 +1318,10 @@ button {
   background-repeat: no-repeat;
 }
 
-.CardDiv {
+.cardDiv {
   gap: 30px;
   display: flex;
-  padding: 50px;
-  max-width: 80%;
-  max-height: 570px;
+  padding: 100px;
   border-radius: 15px;
   align-items: center;
   height: fit-content;
@@ -1482,17 +1330,12 @@ button {
   background: rgba(230, 212, 192, 0.2);
   box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.5), 10px 10px 20px rgba(209, 188, 164, 0.5);
 }
-.CardDiv#login {
-  padding: 100px;
-  max-width: none;
-  max-height: none;
-}
-.CardDiv form {
+.cardDiv form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.CardDiv input {
+.cardDiv input {
   border: none;
   width: 300px;
   padding: 20px;
@@ -1501,10 +1344,10 @@ button {
   font-weight: 500;
   font-size: 1.5rem;
 }
-.CardDiv input::placeholder {
+.cardDiv input::placeholder {
   color: #B8874F;
 }
-.CardDiv input[type=submit] {
+.cardDiv input[type=submit] {
   width: 100%;
   color: #B8874F;
   border-radius: 30px;
@@ -1528,6 +1371,8 @@ button {
   .dashboard-poster {
     padding: 10px;
     height: fit-content;
+    max-width: 500px;
+    margin: 30px auto;
   }
   .dashboard-poster > h3 {
     margin-bottom: 10px;
@@ -1660,6 +1505,89 @@ button {
 }
 .detailsTab > div .title {
   text-align: center;
+}
+
+.loan-details-content {
+  padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  row-gap: 20px;
+  column-gap: 50px;
+}
+@media screen and (max-width: 1000px) {
+  .loan-details-content .loan-details-content {
+    padding: 0;
+    border-radius: 0;
+  }
+  .loan-details-content .loan-details-content h5 {
+    font-size: 1rem;
+  }
+  .loan-details-content .loan-details-content td,
+.loan-details-content .loan-details-content th {
+    font-size: 1rem;
+  }
+}
+
+.loan-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+@media screen and (max-width: 1000px) {
+  .loan-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.companyDetails {
+  margin: 15px;
+  padding: 10px;
+  height: calc(100vh - 80px);
+}
+@media screen and (max-width: 1000px) {
+  .companyDetails {
+    width: 100%;
+    height: auto;
+    grid-template-rows: 1fr 1fr 2fr;
+  }
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 30px;
+}
+@media screen and (max-width: 1000px) {
+  .partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.partnerCard {
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+}
+.partnerCard img {
+  height: 150px;
+}
+.partnerCard div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 20px;
+  column-gap: 10px;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .detail-tile h6 {

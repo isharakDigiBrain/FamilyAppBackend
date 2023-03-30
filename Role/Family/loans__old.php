@@ -1,12 +1,9 @@
+<!-- section family -->
+
 <!-- MAIN -->
 <section class="main">
     <h3 class="page-title">My Loans</h3>
     <!-- h1 -->
-
-    <?php
-    // echo '<pre>';
-    // print_r($ResponseObject);
-    ?>
 
 
     <div class="detailsTab">
@@ -67,8 +64,7 @@
                             <button class="filter selected">Pending</button>
                             <button class="filter">Approved</button>
                         </div>
-                        <form action=""><input type="text" class="input-search" name="search" id="search"
-                                placeholder="Search">
+                        <form action=""><input type="text" class="input-search" name="search" id="search" placeholder="Search">
                         </form>
                     </div>
                     <!-- loan tile -->
@@ -122,8 +118,7 @@
 
 
                 <!-- ishara 15/03/2023 -->
-                <div id="LoadSpiner"
-                    style="display: none; color: #B8874F !important; z-index:9999;position: fixed; margin-left: 40%;">
+                <div id="LoadSpiner" style="display: none; color: #B8874F !important; z-index:9999;position: fixed; margin-left: 40%;">
                     <div class="text-center"><i class="fa-solid fa fa-spinner fa-spin fa-5x"></i>
                         <p>Please Wait!</p>
                     </div>
@@ -165,14 +160,10 @@
                 <div class="modal-header"> Request Loan</div>
                 <div class="modal-body">
                     <form method="post" id="FormNewLoanRequest" name="FormNewLoanRequest">
-                        <input type="text" name="input_amount" id="input_amount" placeholder="Amount"
-                            class="form-control" autocomplete="off" />
-                        <input type="text" name="input_tenure" id="input_tenure" placeholder="Tenure"
-                            class="form-control" autocomplete="off" />
-                        <input type="hidden" name="input_requester_id" id="input_requester_id"
-                            value="<?php echo $_SESSION['user_id'] ?>" placeholder="Tenure" class="form-control" />
-                        <textarea type="text" name="InputRemarks" id="InputRemarks" placeholder="Comments"
-                            class="form-control" autocomplete="off"></textarea>
+                        <input type="text" name="input_amount" id="input_amount" placeholder="Amount" class="form-control" autocomplete="off" />
+                        <input type="text" name="input_tenure" id="input_tenure" placeholder="Tenure" class="form-control" autocomplete="off" />
+                        <input type="hidden" name="input_requester_id" id="input_requester_id" value="<?php echo $_SESSION['user_id'] ?>" placeholder="Tenure" class="form-control" />
+                        <textarea type="text" name="InputRemarks" id="InputRemarks" placeholder="Comments" class="form-control" autocomplete="off"></textarea>
                         <input value="submit" type="submit" id="submit_loan_request" name="submit_loan_request">
                     </form>
                 </div>
@@ -234,18 +225,14 @@
                             <h6>Approver Comment</h6>
                             <h5 id="FinalApproverComment">NA</h5>
                         </div>
-                        <div class="accordion accordion-flush" style="grid-column: 1/span 2;"
-                            id="accordionFlushExample">
+                        <div class="accordion accordion-flush" style="grid-column: 1/span 2;" id="accordionFlushExample">
                             <div class="accordion-item ">
                                 <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
+                                    <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                         Loan Issue Logs
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <table style="width: 100%;" id="LOANS_ISSUED_LOGS">
                                             <thead>
@@ -256,21 +243,18 @@
                                                     <th>Issuer Remarks</th>
                                                 </tr>
                                             </thead>
-                                            
+
                                         </table>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                        aria-controls="flush-collapseTwo">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                                         Loan Recieved log
                                     </button>
                                 </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <table style="width: 100%;" id="LOANS_RECEIVED_LOGS">
                                             <thead>

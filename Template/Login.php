@@ -1,7 +1,7 @@
 <div class="FullScreenBG" style="background-image: url('./assets/img/BG.png');">
 
 
-    <div id="login" class="CardDiv login">
+    <div id="login" class="cardDiv login">
 
         <div class="logo">
             <img src="./assets/img/Logo.png" alt="" srcset="">
