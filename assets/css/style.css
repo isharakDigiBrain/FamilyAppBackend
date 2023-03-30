@@ -1482,7 +1482,7 @@ button {
   background: rgba(230, 212, 192, 0.2);
   box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.5), 10px 10px 20px rgba(209, 188, 164, 0.5);
 }
-.CardDiv#login {
+.CardDiv {
   padding: 100px;
   max-width: none;
   max-height: none;

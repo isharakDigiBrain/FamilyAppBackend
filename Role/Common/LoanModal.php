@@ -50,6 +50,13 @@
                             <h6>Final Approver Comment</h6>
                             <h5 id="FinalApproverComment">NA</h5>
                         </div>
+
+                        <!-- this is new page  -->
+                        <!--display entier details belongs to page  -->
+
+                       
+                        <!-- loans issue and received pages has been commented  -->
+                        <!-- this table will display on more details page  -->
                         <div class="accordion accordion-flush" style="grid-column: 1/span 2;" id="accordionFlushExample">
                             <div class="accordion-item ">
                                 <h2 class="accordion-header" id="flush-headingOne">
@@ -94,29 +101,26 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
+
+                    <button class="Load-LoanDetails">More Details</button>
                 </div>
 
                 <?php
                 if (!empty($Role)) {
                     if ($Role == 'Finance' || $Role == 'FinalApprover') { ?>
 
-                        <form  method="post" id="FormApproveOrReject" class="FormApproveOrReject">
+                        <form method="post" id="FormApproveOrReject" class="FormApproveOrReject">
                             <div class="modal-footer">
 
                                 <input type="text" class="border-dark small width100 input_approver_comment" name="input_approver_comment" id="input_approver_comment" placeholder="Comment">
                                 <input type="hidden" name="input_approver_id" id="input_approver_id" value="<?php echo $_SESSION['user_id'] ?>" placeholder="Tenure" class="form-control" />
 
-                                <!-- <div class="btn-group">
+                                <div class="btn-group">
                                     <button class="loan-edit btn btn-success SubmitApprovedBtn" onclick="openModal(this)">Approve</button>
                                     <button class="btn btn-danger SubmitRejectBtn">Reject</button>
-                                </div> -->
-
-                                <div class="btn-group" style="margin:auto;">
-                <button class="issue loan-edit btn btn-darkPrimary" onclick="openModal(this)">Issue</button>
-                <button class="recieve btn primary-bg" onclick="openModal(this)">Recieve</button>
-            </div>
+                                </div>
 
                             </div>
                         </form>

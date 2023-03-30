@@ -29,7 +29,7 @@ if (isset($_POST['action'])) {
     if ($_POST["action"] == "GET_LOANS_ISSUES_LOGS_AND_RECEIVED_LOGS") {
         $UserRole = $_POST['UserRole'];
         $LoanDetailId = $_POST['LoanDetailId'];
-        $data = $REQLOANS->get_loan_issued_log_by_loan_id($UserRole, $LoanDetailId);
+        $data = $REQLOANS->get_loans_issues_n_receive_with_summery_by_loanId($UserRole, $LoanDetailId);
         echo json_encode($data);
     }
 
@@ -53,5 +53,8 @@ if (isset($_POST['action'])) {
         $data = $REQLOANS->update_reject_status($approver_comment, $approver_id, $UserRole, $loan_id);
         echo json_encode($data);
     }
+
+    
+
 
 }

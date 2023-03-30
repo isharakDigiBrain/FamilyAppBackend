@@ -1,7 +1,7 @@
-<div class="FullScreenBG" style="background-image: url('./assets/img/BG.png');">
+<div class="FullScreenBG border" style="background-image: url('./assets/img/BG.png');">
 
 
-    <div id="login" class="cardDiv login">
+    <!-- <div id="login" class="cardDiv login">
 
         <div class="logo">
             <img src="./assets/img/Logo.png" alt="" srcset="">
@@ -15,6 +15,20 @@
             <?= $DB->IsSuccess ? '' : '<p class="text-danger">' . $DB->Messsage . '</p>'  ?>
         </form>
 
+    </div> -->
+
+    <div class="CardDiv">
+        <div class="logo">
+            <img src="./assets/img/Logo.png" alt="" srcset="">
+            <h3>BE<span class="gold">LL</span>UCCI</h3>
+            <h6 class="gold">Investments Holding</h6>
+        </div>
+        <form method="post">
+            <input type="text" name="username" id="username" placeholder="Email" class="form-control">
+            <input type="password" name="userpass" id="userpass" placeholder="Password" class="form-control">
+            <input type="submit" class="btn btn-primary btn-block" id="btn_login" name="btn_login" value="Sign In">
+            <?= $DB->IsSuccess ? '' : '<p class="text-danger">' . $DB->Messsage . '</p>'  ?>
+        </form>
     </div>
 
 

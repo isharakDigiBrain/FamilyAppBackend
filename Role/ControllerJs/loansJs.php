@@ -77,7 +77,7 @@
                             setTimeout(() => {
                                 $('.TBL_LOANS_REQUEST').DataTable().destroy();
                                 load_requester_data();
-                                dashboard_reports_for_loans();
+                                  dashboard_reports_for_loans();
                                 $('#body-content').css({
                                     opacity: 1,
                                 });
@@ -117,6 +117,7 @@
 
         load_requester_data();
         dashboard_reports_for_loans();
+
 
 
 
@@ -230,7 +231,7 @@
                                 case '4': //FINANCE REJEC
                                 case '8': //FINANCE CANCE
                                 case '9': //FINANCE SETTLE
-                                case '10':  //FINANCE CLOSE
+                                case '10': //FINANCE CLOSE
                                     //document.getElementById("input_approver_comment").disabled = true; 
                                     $('.input_approver_comment').fadeIn();
                                     $('.SubmitApprovedBtn').fadeIn();
@@ -419,7 +420,7 @@
                                             setTimeout(() => {
                                                 $('.TBL_LOANS_REQUEST').DataTable().destroy();
                                                 load_requester_data();
-                                                dashboard_reports_for_loans();
+                                                 dashboard_reports_for_loans();
                                                 $('#body-content').css({
                                                     opacity: 1,
                                                 });
@@ -499,7 +500,7 @@
                                             setTimeout(() => {
                                                 $('.TBL_LOANS_REQUEST').DataTable().destroy();
                                                 load_requester_data();
-                                                dashboard_reports_for_loans();
+                                                 dashboard_reports_for_loans();
                                                 $('#body-content').css({
                                                     opacity: 1,
                                                 });
@@ -534,6 +535,22 @@
 
                         });
                     });
+
+                    //loan details page init
+                    //navigate to loan details page 
+                    //load loan-details page
+                    $(".Load-LoanDetails").click(function() {
+                        post_to_url('<?= WEB_ROOT ?>', {
+                            nav_page: 'loans-details',
+                            Role: '<?= $Role ?>',
+                            LoanID: LoanDetailId,
+                        }, 'post');
+
+                    });
+
+
+
+
 
                 });
             }

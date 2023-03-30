@@ -297,7 +297,7 @@ class LoansRequests extends dbconn
                         WHERE bi_loansapplication.requesterId=$userid");
                         $stmt1->execute();
                         $total_issued_sum = $stmt1->fetch(PDO::FETCH_ASSOC)['total_issued_amount'];
-    
+
                         // Get  received loans finance
                         $stmt3 = $db->prepare("SELECT 
                             SUM(bi_recievedlog.amount) AS total_received_amount 
@@ -311,7 +311,7 @@ class LoansRequests extends dbconn
                             bi_loansapplication.requesterId=$userid");
                         $stmt3->execute();
                         $total_received_amount = $stmt3->fetch(PDO::FETCH_ASSOC)['total_received_amount'];
-    
+
                         // Get pending loans finance
                         $stmt2 = $db->prepare("SELECT 
                         COUNT(*) AS pending_laons 
@@ -323,18 +323,18 @@ class LoansRequests extends dbconn
                         $stmt2->execute();
                         $pending_loans = $stmt2->fetch(PDO::FETCH_ASSOC)['pending_laons'];
                         break;
-                    
+
                     case 'Finance':
                     case 'FinalApprover':
                         $stmt1 = $db->prepare("SELECT SUM(bi_issuedlog.amount) AS total_issued_amount FROM bi_issuedlog");
                         $stmt1->execute();
                         $total_issued_sum = $stmt1->fetch(PDO::FETCH_ASSOC)['total_issued_amount'];
-    
+
                         // Get pending loans finance
                         $stmt2 = $db->prepare("SELECT COUNT(*) AS pending_laons FROM bi_loansapplication WHERE bi_loansapplication.status = 2");
                         $stmt2->execute();
                         $pending_loans = $stmt2->fetch(PDO::FETCH_ASSOC)['pending_laons'];
-    
+
                         // Get  received loans finance
                         $stmt3 = $db->prepare("SELECT SUM(bi_recievedlog.amount) AS total_received_amount FROM bi_recievedlog");
                         $stmt3->execute();
@@ -358,7 +358,7 @@ class LoansRequests extends dbconn
 
     // loan issued tble
     //loan received table
-    public function get_loan_issued_log_by_loan_id($UserRole, $LoanDetailID)
+    public function get_loans_issues_n_receive_with_summery_by_loanId($UserRole, $LoanDetailID)
     {
         if (isset($_SESSION['user_id'])) {
             $db = $this->dblocal;
@@ -374,11 +374,75 @@ class LoansRequests extends dbconn
                     $stmt2 = $db->prepare("SELECT * FROM bi_recievedlog WHERE loanId=$LoanDetailID AND requester_id= $userid");
                     $stmt2->execute();
                     $RECEIVED_LOANS = $stmt2->fetchall(PDO::FETCH_OBJ);
+                } else if ($UserRole == 'Finance') {
+                    //total issued loans finance
+                    $stmt1 = $db->prepare("SELECT * FROM bi_issuedlog WHERE loanId=$LoanDetailID ");
+                    $stmt1->execute();
+                    $ISSUED_LOANS = $stmt1->fetchall(PDO::FETCH_OBJ);
+
+                    $stmt2 = $db->prepare("SELECT * FROM bi_recievedlog WHERE loanId=$LoanDetailID ");
+                    $stmt2->execute();
+                    $RECEIVED_LOANS = $stmt2->fetchall(PDO::FETCH_OBJ);
                 }
+
+
+                $stmt3 = $db->prepare("SELECT 
+                bi_loansapplication.id,
+                bi_loansapplication.amount,
+                bi_loansapplication.status as status,
+                CONCAT('" . addslashes('<p style="border: 1px solid #B8874F; color:#B8874F; " class="badge">') . "',bi_loanstatus.name, '" . addslashes('</p>') . "' )  as statusName,
+                bi_loansapplication.tenureMonths,
+                bi_loansapplication.tenureExp,
+                bi_loansapplication.requesterId,
+                bi_loansapplication.requesterComment,
+                bi_loansapplication.financeId,
+                bi_loansapplication.financeComment,
+                bi_loansapplication.approverId,
+                bi_loansapplication.approverComment,
+                bi_loansapplication.createdOn,
+                bi_issuedlog.loanId,
+                bi_issuedlog.issuedById,
+                bi_issuedlog.issuedRemarks,
+                bi_issuedlog.amount as issued_amount,
+                bi_issuedlog.attachment,
+                bi_issuedlog.createdDateTime,
+                bi_recievedlog.loanId,
+                bi_recievedlog.recievedById,
+                bi_recievedlog.recievedRemark,
+                bi_recievedlog.attachment,
+                bi_recievedlog.createdDateTime,
+                bi_recievedlog.amount as receive_amount,
+                bi_users.id as user_id,
+                bi_users.username,
+                bi_users.name as user_name,
+                bi_users.email as user_email
+            FROM 
+                `bi_loansapplication`
+            LEFT JOIN 
+                bi_loanstatus
+            ON  
+                bi_loansapplication.status=bi_loanstatus.id 
+            LEFT JOIN
+                 bi_issuedlog 
+            ON  
+                bi_loansapplication.id=bi_issuedlog.loanId 
+            LEFT JOIN 
+                 bi_recievedlog
+            ON 
+                bi_loansapplication.id = bi_recievedlog.loanId 
+            LEFT JOIN 
+                bi_users 
+            ON 
+                bi_loansapplication.requesterId=bi_users.id
+            WHERE 
+                bi_loansapplication.id=$LoanDetailID");
+                $stmt3->execute();
+                $Detail_Summery = $stmt3->fetchall(PDO::FETCH_OBJ);
 
                 $response = [
                     'ISSUED_LOANS' => $ISSUED_LOANS,
                     'RECEIVED_LOANS' => $RECEIVED_LOANS,
+                    'LoanDetailSummery' => $Detail_Summery,
                 ];
 
                 return $response;
@@ -496,5 +560,3 @@ class LoansRequests extends dbconn
         }
     }
 }
-
-
